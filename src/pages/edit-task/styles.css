@@ -1,0 +1,18 @@
+.edit-task, .edit-task__form{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.edit-task{
+    padding: 20px 25px;
+}
+
+.edit-task__form{
+    max-width: 500px;
+}
+
+.edit-task__btn{
+    width: 100px;
+    align-self: flex-start;
+}

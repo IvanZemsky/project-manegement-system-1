@@ -1,0 +1,18 @@
+.create-project, .create-project__form{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.create-project{
+    padding: 20px 25px;
+}
+
+.create-project__form{
+    max-width: 500px;
+}
+
+.create-project__btn{
+    width: 100px;
+    align-self: flex-start;
+}

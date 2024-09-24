@@ -1,0 +1,18 @@
+.create-task, .create-task__form{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.create-task{
+    padding: 20px 25px;
+}
+
+.create-task__form{
+    max-width: 500px;
+}
+
+.create-task__btn{
+    width: 100px;
+    align-self: flex-start;
+}

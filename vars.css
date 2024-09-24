@@ -1,0 +1,14 @@
+:root{
+    --primary-100: #fff;
+    --primary-200: #ebebeb;
+    --primary-300: #b9b9b9;
+    --primary-400: #a8a8a8;
+    --primary-800: #1b1b1b;
+    --primary-900: #000000;
+
+
+    --secondary-500: #6b51ff;
+
+    --shadow-1: 1px 1px 3px 0 rgba(0,0,0, 0.5);
+    --shadow-2: 1px 1px 3px 0 rgba(0,0,0, 0.3);
+}

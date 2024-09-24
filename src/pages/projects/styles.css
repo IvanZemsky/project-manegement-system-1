@@ -1,0 +1,44 @@
+.projects{
+   padding: 20px;
+}
+
+.projects__header{
+   display: flex;
+   align-items: center;
+   gap: 20px;
+   margin-bottom: 10px;
+}
+
+.projects__title{
+   font-size: 30px;
+}
+
+.projects__list{
+   display: grid;
+   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+   gap: 20px;
+}
+
+.projects__card{
+   display: flex;
+   flex-direction: column;
+   gap: 10px;
+   padding: 10px;
+   border-radius: 10px;
+   background-color: var(--primary-200);
+   transition: box-shadow 0.15s linear;
+}
+
+.projects__card:hover{
+   box-shadow: var(--shadow-2);
+}
+
+.projects__card-title{
+   font-size: 20px;
+   color: var(--primary-900);
+}
+
+.projects__card-delete-btn{
+   align-self: flex-start;
+   margin-top: auto;
+}
