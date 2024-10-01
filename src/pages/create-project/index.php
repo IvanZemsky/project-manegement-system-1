@@ -8,6 +8,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     $project = [
         "name" => $project_name,
         "tasks" => [],
+        "executors" => [],
     ];
 
     if (!isset($_SESSION['projects'])) {

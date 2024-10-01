@@ -8,6 +8,8 @@ if (!isset($_SESSION['projects'][$projectName])) {
     header('Location: index.php');
 }
 
+$executors = $_SESSION['projects'][$projectName]['executors'];
+
 if ($_SERVER['REQUEST_METHOD'] == "POST") {
     $task_name = $_POST['task_name'];
     $executor = $_POST['executor'];
@@ -37,8 +39,9 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     <form method="POST" class="create-task__form">
         <input type="text" class="base-input" placeholder="Name" id="task-name" name="task_name">
         <select name="executor" id="executor" class="base-input">
-            <option value="Kopytin I. D.">Kopytin I. D.</option>
-            <option value="Afanasyev D. P.">Afanasyev D. P.</option>
+            <?php foreach ($executors as $executor) {
+                echo "<option value=\"{$executor['name']}\">{$executor['name']}</option>";
+            } ?>
         </select>
         <select name="stage" id="stage" class="base-input">
             <option value="To do">To do</option>

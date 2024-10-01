@@ -1,0 +1,18 @@
+.add-executor, .add-executor__form{
+   display: flex;
+   flex-direction: column;
+   gap: 15px;
+}
+
+.add-executor{
+   padding: 20px 25px;
+}
+
+.add-executor__form{
+   max-width: 500px;
+}
+
+.add-executor__btn{
+   width: 100px;
+   align-self: flex-start;
+}

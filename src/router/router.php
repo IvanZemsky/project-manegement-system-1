@@ -3,6 +3,7 @@
 $routes = [
     '/project-management-system/index.php' => './src/pages/projects/index.php',
     '/project-management-system/board.php' => './src/pages/board/index.php',
+    '/project-management-system/add-executor.php' => './src/pages/add-executor/index.php',
     '/project-management-system/create-project.php' => './src/pages/create-project/index.php',
     '/project-management-system/create-task.php' => './src/pages/create-task/index.php',
     '/project-management-system/edit-task.php' => './src/pages/edit-task/index.php',

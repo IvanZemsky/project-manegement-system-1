@@ -19,6 +19,7 @@ if (!isset($project)) {
             <?php echo $projectName ?>
         </h2>
         <?php echo "<a class=\"base-button\" href=\"./create-task.php?project={$projectName}\">Create task</a>"; ?>
+        <?php echo "<a class=\"base-button\" href=\"./add-executor.php?project={$projectName}\">Add executor</a>"; ?>
     </header>
     <div class="board__columns">
         <div class="board__column">

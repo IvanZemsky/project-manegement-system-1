@@ -4,14 +4,15 @@ session_start();
 
 $projectName = $_GET['project'];
 
+if (!isset($_SESSION['projects'][$projectName])) {
+    header('Location: index.php');
+}
+
 $name = $_GET['name'];
-$executor = $_GET['executor'];
+$current_executor = $_GET['executor'];
 $stage  = $_GET['stage'];
 
-$executors = [
-    "Kopytin I. D.",
-    "Afanasyev D. P.",
-];
+$executors = $_SESSION['projects'][$projectName]['executors'];
 
 $stages = [
     "To do",
@@ -22,14 +23,14 @@ $stages = [
 
 if ($_SERVER['REQUEST_METHOD'] == "POST") {
     $task_name = $_POST['task_name'];
-    $executor = $_POST['executor'];
+    $executor_name = $_POST['executor'];
     $stage = $_POST['stage'];
 
     if (isset($_SESSION['projects'][$projectName])) {
         foreach ($_SESSION['projects'][$projectName]['tasks'] as &$task) {
             if ($task['name'] === $name) {
                 $task['name'] = $task_name;
-                $task['executor'] = $executor;
+                $task['executor'] = $executor_name;
                 $task['stage'] = $stage;
                 break;
             }
@@ -47,9 +48,9 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
         <input type="text" class="base-input" placeholder="Name" id="task-name" name="task_name" value="<?php echo htmlspecialchars($name); ?>">
         <select name="executor" id="executor" class="base-input">
         <?php
-            foreach($executors as $value) {
-                $selected = $value === $executor ? 'selected="selected"' : '';
-                echo "<option value=\"{$value}\" {$selected}>{$value}</option>";
+            foreach($executors as $executor) {
+                $selected = $current_executor === $executor ? 'selected="selected"' : '';
+                echo "<option value=\"{$executor['name']}\" {$selected}>{$executor['name']}</option>";
             }
         ?>
         </select>
