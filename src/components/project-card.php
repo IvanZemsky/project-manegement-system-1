@@ -1,7 +1,7 @@
 <?php
 
-function project_card($name) {
-    $link = "board.php?project={$name}";
+function project_card($name, $id) {
+    $link = "board.php?project={$id}";
 
     echo "<a href=\"{$link}\" class=\"projects__card\">
             <h2 class=\"projects__card-title\">

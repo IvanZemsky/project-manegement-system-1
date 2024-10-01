@@ -1,6 +1,9 @@
 <?php
 require_once "src/components/project-card.php";
-session_start();
+require 'src/db.php';
+
+$stmt = $pdo->query("SELECT id, name FROM projects");
+$projects = $stmt->fetchAll();
 ?>
 
 <div class="projects">
@@ -12,14 +15,12 @@ session_start();
    </header>
    <ul class="projects__list">
       <?php
-      if (isset($_SESSION['projects'])) {
-         foreach ($_SESSION['projects'] as $project) {
-            project_card($project["name"]);
+      if ($projects) {
+         foreach ($projects as $project) {
+            project_card($project["name"], $project["id"]);
          }
+      } else {
+         echo "<p>You haven't created any projects yet</p>";
       }
       ?>
-   </ul>
-   <?php if (!isset($_SESSION['projects'])) {
-      echo "<p>You haven't created any projects yet</p>";
-   } ?>
 </div>

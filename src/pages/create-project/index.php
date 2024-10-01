@@ -2,23 +2,26 @@
 
 session_start();
 
+require_once "src/db.php";
+
 if ($_SERVER['REQUEST_METHOD'] == "POST") {
     $project_name = $_POST['project_name'];
 
-    $project = [
-        "name" => $project_name,
-        "tasks" => [],
-        "executors" => [],
-    ];
+    $stmt = $pdo->prepare("SELECT COUNT(*) FROM projects WHERE name = ?");
+    $stmt->execute([$project_name]);
+    $exists = $stmt->fetchColumn();
 
-    if (!isset($_SESSION['projects'])) {
-        $_SESSION['projects'] = [];
+    if ($exists) {
+        echo "Project with this name already exists!";
+    } else {
+        $stmt = $pdo->prepare("INSERT INTO projects (name) VALUES (?)");
+        $stmt->execute([$project_name]);
+
+        $project_id = $pdo->lastInsertId();
+
+        header("Location: board.php?project={$project_id}");
+        exit();
     }
-
-    $_SESSION['projects'][$project_name] = $project;
-
-    header("Location: board.php?project={$project_name}");
-    exit();
 }
 ?>
 
